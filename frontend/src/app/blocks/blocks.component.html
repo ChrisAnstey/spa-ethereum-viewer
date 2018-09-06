@@ -1,3 +1,10 @@
-<p>
-  {{ block.name }}: {{ block.id }}
-</p>
+<table>
+  <tr *ngFor="let block of blocks">
+    <td>
+      {{ block.name }}
+    </td>
+    <td>
+      {{ block.id }}
+    </td>
+  </tr>
+</table>

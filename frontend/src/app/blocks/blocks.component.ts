@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Block } from '../block';
+import { BlockService } from '../block.service';
 
 @Component({
   selector: 'app-blocks',
@@ -8,14 +9,16 @@ import { Block } from '../block';
 })
 export class BlocksComponent implements OnInit {
 
-  block: Block = {
-    id: 123,
-    name: "Latest Block",
-  };
+  blocks: Block [];
 
-  constructor() { }
+  constructor(private blockService: BlockService) { }
 
   ngOnInit() {
+    this.getBlocks();
+  }
+
+  getBlocks(): void {
+    this.blocks = this.blockService.getBlocks();
   }
 
 }
