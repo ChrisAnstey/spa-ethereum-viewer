@@ -18,7 +18,7 @@ export class BlocksComponent implements OnInit {
   }
 
   getBlocks(): void {
-    this.blocks = this.blockService.getBlocks();
+    this.blockService.getBlocks().subscribe(blocks => this.blocks = blocks);
   }
 
 }

@@ -1,16 +1,19 @@
 import { Injectable } from '@angular/core';
 import { Block } from './block';
+import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BlockService {
 
-  constructor() { }
+  // URL to web api
+  private blocksUrl = 'http://localhost:4000';
 
-  getBlocks(): Block[] {
-    // create a mock array of block data
-    var blocks: Block[] = [{id: 123, name: "Latest Block"},{id: 122, name: "Previous Block"}];
-    return blocks;
+  constructor(private http: HttpClient) { }
+
+  getBlocks(): Observable<Block[]> {
+    return this.http.get<Block[]>(this.blocksUrl);
   }
 }
