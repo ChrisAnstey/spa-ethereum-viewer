@@ -10,6 +10,7 @@ import { BlockService } from '../block.service';
 export class BlocksComponent implements OnInit {
 
   blocks: Block [];
+  selectedBlock: Block;
 
   constructor(private blockService: BlockService) { }
 
@@ -21,4 +22,7 @@ export class BlocksComponent implements OnInit {
     this.blockService.getBlocks().subscribe(blocks => this.blocks = blocks);
   }
 
+  onSelect(block: Block): void {
+    this.blockService.getBlock(block.id).subscribe(selectedBlock => this.selectedBlock = selectedBlock);
+  }
 }

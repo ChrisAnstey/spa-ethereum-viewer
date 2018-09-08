@@ -1,5 +1,5 @@
 <table>
-  <tr *ngFor="let block of blocks">
+  <tr *ngFor="let block of blocks" (click)="onSelect(block)">
     <td>
       {{ block.name }}
     </td>
@@ -8,3 +8,4 @@
     </td>
   </tr>
 </table>
+<app-block-detail [block]="selectedBlock"></app-block-detail>
