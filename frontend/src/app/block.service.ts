@@ -16,4 +16,8 @@ export class BlockService {
   getBlocks(): Observable<Block[]> {
     return this.http.get<Block[]>(this.blocksUrl);
   }
+
+  getBlock(blockId): Observable<Block> {
+    return this.http.get<Block>(this.blocksUrl+'/blocks/'+blockId);
+  }
 }
